@@ -1,0 +1,36 @@
+# Template file for 'picom-ibhagwan'
+pkgname=xdg-menu
+version=1
+revision=1
+wrksrc=xdg-menu
+build_style=meson
+configure_args=""
+hostmakedepends="git pkg-config asciidoc"
+makedepends=""
+depends="perl-xml-parser perl"
+short_desc="Pipe menu generator for window managers like Openbox or Fluxbox"
+maintainer="Oak Bricks"
+license="GPL"
+homepage="https://wiki.archlinux.org/index.php/XdgMenu"
+#distfiles="https://github.com/ibhagwan/picom/archive/next.tar.gz"
+#checksum=dfe072ca800360b6125c59dd5b6f27840f540cf7ee63add7a913b292e26ef292
+
+do_fetch() {
+  wget https://arch.p5n.pp.ru/~sergej/dl/2018/arch-xdg-menu-0.7.6.3.tar.gz ${wrksrc}
+}
+
+post_install() {
+	echo "Install Complete"
+}
+
+xdg-menu_package() {
+install -D -m 0755 xdg_menu "$pkgdir"/usr/bin/xdg_menu
+  install -D -m 0755 xdg_menu_su "$pkgdir"/usr/bin/xdg_menu_su
+  install -D -m 0755 update-menus "$pkgdir"/usr/bin/update-menus
+  install -D -m 0644 update-menus.conf "$pkgdir"/etc/update-menus.conf
+  mkdir -p "$pkgdir"/usr/share/desktop-directories/
+  cp arch-desktop-directories/* "$pkgdir"/usr/share/desktop-directories/
+  mkdir -p "$pkgdir"/etc/xdg/menus/
+  cp arch-xdg-menu/* "$pkgdir"/etc/xdg/menus/
+  mkdir -p "$pkgdir"//var/cache/xdg-menu
+  }
