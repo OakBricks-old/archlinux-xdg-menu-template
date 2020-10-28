@@ -1,6 +1,6 @@
 ## Void Linux template file for xbps-src
 
-Instructions for building `picom-ibhagwan` on void linux using `xbps-src`:
+Instructions for building `archlinux-xdg-menu` on void linux using `xbps-src`:
 
 1. Setup the `void-packages` repo:
 
@@ -14,7 +14,7 @@ Instructions for building `picom-ibhagwan` on void linux using `xbps-src`:
 2. Download the template repo and copy into `srcpkgs`:
 
 ```sh
-❯ git clone https://github.com/ibhagwan/picom-ibhagwan-template
+❯ git clone https://github.com/OakBricks/archlinux-xdg-menu-template
 ❯ mv picom-ibhagwan-template ./srcpkgs/picom-ibhagwan
 ```
 
